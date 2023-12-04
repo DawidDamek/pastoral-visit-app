@@ -3,6 +3,7 @@
 module.exports = function (environment) {
   const ENV = {
     modulePrefix: 'pastoral-visit-app',
+    podModulePrefix: 'pastoral-visit-app/pods',
     environment,
     rootURL: '/',
     locationType: 'history',
