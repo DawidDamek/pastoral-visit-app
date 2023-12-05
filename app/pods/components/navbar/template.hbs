@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <LinkTo class="nav-link navbar-brand" @route="main">
+      Parafia
+    </LinkTo>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <LinkTo class="nav-link" @route="panel">
+            Panel główny
+          </LinkTo>
+        </li>
+        <li class="nav-item">
+          <LinkTo class="nav-link" @route="order">
+            Zamów wizytę duszpasterskią
+          </LinkTo>
+        </li>
+        <li class="nav-item">
+          <LinkTo class="nav-link" @route="user.show" @model="1">
+            profil parafianina
+          </LinkTo>
+        </li>
+        <li class="nav-item">
+          <LinkTo class="nav-link" @route="priest">
+            profil księdza
+          </LinkTo>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

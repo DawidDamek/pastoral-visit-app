@@ -10,6 +10,7 @@ export default class LoginFormComponent extends Component {
     this.credentials[key] = value;
     console.log(this.credentials[key]);
   }
+
   @action
   onLogin() {
     console.log('login');
