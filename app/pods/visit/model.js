@@ -11,10 +11,9 @@ export default class VisitModel extends Model {
   @attr('string') degree;
   @attr('string') photoUrl;
   @attr('string') street;
+  @attr('string') status;
   @attr('date') schedule;
-  @attr('enum') status;
   @attr('number') houseMembersCount;
-  @attr('number') phoneNumber;
   @attr('number') number;
   @attr('number') subnumber;
 

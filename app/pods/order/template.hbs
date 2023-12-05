@@ -1,2 +1,10 @@
 {{page-title "Order"}}
 <Navbar />
+
+<div class="mt-5">
+  <Shared::Form
+    @model="visit"
+    @changeset={{this.visitChangeset}}
+    @disabled={{false}}
+  />
+</div>

@@ -1,0 +1,22 @@
+<form>
+  {{#each this.schemaFields as |field index|}}
+    <div class="mb-3 w-50 mx-auto">
+      <label
+        for="input-{{index}}"
+        class="form-label"
+      >{{field.propertyName}}</label>
+      <input
+        type={{field.path}}
+        class="form-control"
+        id="input-{{index}}"
+        {{on "input" (fn this.onPropertyChange field.propertyName)}}
+      />
+    </div>
+  {{/each}}
+</form>
+
+<button
+  type="button"
+  class="btn btn-primary"
+  {{on "click" this.onSave}}
+>Save</button>
