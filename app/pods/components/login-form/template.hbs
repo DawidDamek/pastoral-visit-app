@@ -1,0 +1,36 @@
+<div class="d-flex justify-content-center">
+  <div class="card w-50">
+    <div class="card-body">
+      <form>
+        <div class="form-outline mb-4">
+          <input
+            type="email"
+            id="mail"
+            class="form-control"
+            value={{this.credentials.email}}
+            {{on "input" (fn this.onPropertyChange "email")}}
+          />
+          <label class="form-label" for="mail">Email address</label>
+        </div>
+
+        <div class="form-outline mb-4">
+          <input
+            type="password"
+            id="password"
+            class="form-control"
+            value={{this.credentials.password}}
+            {{on "input" (fn this.onPropertyChange "password")}}
+          />
+          <label class="form-label" for="password">Password</label>
+        </div>
+
+        <button
+          type="button"
+          class="btn btn-primary btn-block mb-4"
+          {{on "click" this.onLogin}}
+        >Sign in</button>
+
+      </form>
+    </div>
+  </div>
+</div>
