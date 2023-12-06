@@ -1,4 +1,14 @@
 {{page-title "Visits"}}
 
-{{this.session.currentUser.id}}
-{{this.session.currentUser.email}}
+{{#each this.model as |visit|}}
+  <div>
+    <div>{{visit.id}}</div>
+    <div>{{visit.email}}</div>
+  </div>
+{{/each}}
+
+{{#if this.model.canLoadMore}}
+  <InfinityLoader @infinityModel={{this.model}} @hideOnInfinity={{true}}>
+    <div class="spinner-border" role="status"></div>
+  </InfinityLoader>
+{{/if}}

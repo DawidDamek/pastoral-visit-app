@@ -12,9 +12,10 @@ export default class VisitModel extends Model {
   @attr('string') photoUrl;
   @attr('string') street;
   @attr('date') schedule;
-  @attr('enum') status;
+  @attr('string') status;
   @attr('number') houseMembersCount;
-  @attr('number') phoneNumber;
+  @attr('string') phoneNumber;
+  @attr('string') email;
   @attr('number') number;
   @attr('number') subnumber;
 
