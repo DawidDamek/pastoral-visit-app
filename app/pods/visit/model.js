@@ -9,7 +9,6 @@ export default class VisitModel extends Model {
   @attr('string') city;
   @attr('string') phoneNumber;
   @attr('string') degree;
-  @attr('string') photoUrl;
   @attr('string') street;
   @attr('string') status;
   @attr('date') schedule;
@@ -17,7 +16,7 @@ export default class VisitModel extends Model {
   @attr('number') number;
   @attr('number') subnumber;
 
-  @belongsTo('visit') visit;
+  @belongsTo('request') request;
   @belongsTo('user') user;
 }
 

@@ -1,2 +1,18 @@
 {{page-title "Requests"}}
+Rekłests
+<div class="container">
+  <div class="row row-cols-3">
+    {{#each this.model as |request|}}
+      <div class="card col justyfy-content-between m-2" style="width: 18rem;">
+        <div class="card-header">
+          Proźba wizyty #{{request.id}}
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">{{request.name}}</li>
+          <li class="list-group-item">{{request.surname}}</li>
+        </ul>
+      </div>
+    {{/each}}
+  </div>
+</div>
 {{outlet}}

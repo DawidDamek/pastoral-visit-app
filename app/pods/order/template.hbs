@@ -3,8 +3,9 @@
 
 <div class="mt-5">
   <Shared::Form
-    @model="visit"
-    @changeset={{this.visitChangeset}}
+    @modelType="request"
+    @model={{this.model}}
     @disabled={{false}}
+    @onSave={{this.onSave}}
   />
 </div>

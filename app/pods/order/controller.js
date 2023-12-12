@@ -1,14 +1,14 @@
 import Controller from '@ember/controller';
 import { service } from '@ember/service';
-import { Changeset } from 'ember-changeset';
+import { action } from '@ember/object';
 
-export default class PanelVisitsController extends Controller {
+export default class OrderController extends Controller {
   @service store;
+  @service router;
 
-  constructor() {
-    super(...arguments);
-
-    const newVisit = this.store.createRecord('visit');
-    this.visitChangeset = Changeset(newVisit);
+  @action
+  async onSave() {
+    console.log('args on save');
+    this.router.transitionTo('panel.requests');
   }
 }
