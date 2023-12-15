@@ -2,11 +2,14 @@ import Route from '@ember/routing/route';
 import { service } from '@ember/service';
 
 export default class PanelRoute extends Route {
-  @service mySession;
+  @service session;
   @service store;
 
-  async beforeModel() {
-    const currentUser = await this.store.findRecord('user', 1);
-    this.mySession.currentUser = currentUser;
+  beforeModel(transition) {
+    this.session.requireAuthentication(transition, 'login');
+  }
+
+  model() {
+    // fetch user
   }
 }
