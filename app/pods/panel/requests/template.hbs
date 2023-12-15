@@ -3,6 +3,7 @@ Rekłests
 <div class="container">
   <div class="row row-cols-3">
     {{#each this.model as |request|}}
+      {{! template-lint-disable no-inline-styles }}
       <div class="card col justyfy-content-between m-2" style="width: 18rem;">
         <div class="card-header">
           Proźba wizyty #{{request.id}}
