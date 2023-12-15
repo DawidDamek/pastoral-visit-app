@@ -1,0 +1,3 @@
+[submodule "pastoral-visit-api"]
+	path = pastoral-visit-api
+	url = https://github.com/DawidDamek/pastoral-visit-api.git
