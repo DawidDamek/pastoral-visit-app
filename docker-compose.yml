@@ -1,0 +1,32 @@
+version: "3"
+services:
+  ember_app:
+    build:
+      dockerfile: Dockerfile
+      context: "./"
+    ports:
+      - "4200:4200"
+
+  # fetch-repo:
+  #   image: alpine/git
+  #   volumes:
+  #     - ./pastoral-visit-api:/api
+  #   command: ["clone", "https://github.com/DawidDamek/pastoral-visit-api.git"]
+
+  api_app:
+    build:
+      context: ../pastoral-visit-api
+      dockerfile: Dockerfile # Zdefiniuj Dockerfile dla aplikacji w katalogu pastoral-visit-api
+    ports:
+      - "3000:3000"
+    volumes:
+      - ../pastoral-visit-api:/rails
+    environment:
+      DATABASE_URL: postgres://username:password@db:5432/pastoral_visit_api_development
+
+  db:
+    image: "postgres:15-alpine"
+    environment:
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: "pastoral_visit_api_development"
