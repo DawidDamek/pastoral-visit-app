@@ -7,16 +7,10 @@ services:
     ports:
       - "4200:4200"
 
-  # fetch-repo:
-  #   image: alpine/git
-  #   volumes:
-  #     - ./pastoral-visit-api:/api
-  #   command: ["clone", "https://github.com/DawidDamek/pastoral-visit-api.git"]
-
   api_app:
     build:
       context: ../pastoral-visit-api
-      dockerfile: Dockerfile # Zdefiniuj Dockerfile dla aplikacji w katalogu pastoral-visit-api
+      dockerfile: Dockerfile
     ports:
       - "3000:3000"
     volumes:

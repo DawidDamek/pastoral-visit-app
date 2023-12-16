@@ -13,6 +13,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Initialize and Update Submodules
+        run: |
+          git submodule update --init --recursive
+
+      - name: Install Ruby
+        uses: ruby/setup-ruby@v3
+        with:
+          ruby-version: "3.2.2"
+
+      - name: Bundle Install for Submodule
+        working-directory: pastoral-visit-api
+        run: |
+          gem install bundler
+          bundle install
+
       - name: Build and test Ember.js app
         run: |
           docker build -t ember-app .
