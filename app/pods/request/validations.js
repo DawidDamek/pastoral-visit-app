@@ -1,4 +1,3 @@
-// validations/employee.js
 import {
   validatePresence,
   validateLength,
