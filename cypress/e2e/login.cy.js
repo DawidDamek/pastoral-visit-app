@@ -23,4 +23,12 @@ describe('checks login', () => {
     cy.contains('Sign in').click();
     cy.url().should('eq', 'http://localhost:4200/login');
   });
+
+  it('login without UI ang visit panel', () => {
+    cy.authenticate();
+
+    cy.visit('/panel/requests');
+    cy.url().should('eq', 'http://localhost:4200/panel/requests');
+    cy.get('.card').should('have.length', 3);
+  });
 });
