@@ -4,12 +4,11 @@ describe('checks login', () => {
     cy.contains('Panel główny').click();
     cy.get('input[type="email"]').type('john.doe@example.com');
     cy.get('input[type="password"]').type('password123');
-
     cy.intercept('POST', 'http://localhost:3000/users/sign_in').as('signIn');
-
     cy.contains('Sign in').click();
 
     cy.wait('@signIn').then((interception) => {
+      cy.logToConsole(interception);
       cy.logToConsole(interception.response);
     });
 
