@@ -11,24 +11,36 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: npm
 
       - name: Initialize and Update Submodules
         run: |
           git submodule update --init --recursive
 
-      - name: Install Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: "3.2.2"
-
-      - name: Bundle Install for Submodule
-        working-directory: pastoral-visit-api
+      - name: Run docker
         run: |
-          gem install bundler
-          bundle install
+          docker-compose up -d
+          docker-compose ps
 
-      - name: Build and test Ember.js app
-        run: |
-          docker build -t ember-app .
-          docker run ember-app npm test
+      # - name: Install Ruby
+      #   uses: ruby/setup-ruby@v1
+      #   with:
+      #     ruby-version: "3.2.2"
+
+      # - name: Bundle Install for Submodule
+      #   working-directory: pastoral-visit-api
+      #   run: |
+      #     gem install bundler
+      #     bundle install
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run Tests
+        run: npm test

@@ -9,14 +9,16 @@ services:
 
   api_app:
     build:
-      context: ../pastoral-visit-api
+      context: ./pastoral-visit-api
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
     volumes:
-      - ../pastoral-visit-api:/rails
+      - ./pastoral-visit-api:/rails
     environment:
       DATABASE_URL: postgres://username:password@db:5432/pastoral_visit_api_development
+    depends_on:
+      - db
 
   db:
     image: "postgres:15-alpine"
