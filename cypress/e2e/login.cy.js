@@ -24,7 +24,7 @@ describe('checks login', () => {
     cy.url().should('eq', 'http://localhost:4200/login');
   });
 
-  it('login without UI ang visit panel', () => {
+  it('login without UI and visit panel', () => {
     cy.authenticate();
 
     cy.visit('/panel/requests');
