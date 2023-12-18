@@ -2,15 +2,25 @@
 Requests panel
 <div class="container">
   <div class="row row-cols-3">
-    {{#each this.model as |request|}}
+    {{#each this.model as |request index|}}
       {{! template-lint-disable no-inline-styles }}
-      <div class="card col justyfy-content-between m-2" style="width: 18rem;">
+      <div
+        data-test-card={{index}}
+        class="card col justyfy-content-between m-2"
+        style="width: 18rem;"
+      >
         <div class="card-header">
-          Proźba wizyty #{{request.id}}
+          Prośba wizyty #{{request.id}}
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">{{request.name}}</li>
-          <li class="list-group-item">{{request.surname}}</li>
+          <li
+            data-test-card-name={{index}}
+            class="list-group-item"
+          >{{request.name}}</li>
+          <li
+            data-test-card-surname={{index}}
+            class="list-group-item"
+          >{{request.surname}}</li>
         </ul>
       </div>
     {{/each}}

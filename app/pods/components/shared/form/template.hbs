@@ -6,12 +6,14 @@
         class="form-label"
       >{{field.propertyName}}</label>
       <input
+        data-test-input={{index}}
         type={{field.path}}
         class="form-control"
         id="input-{{index}}"
         {{on "input" (fn this.onPropertyChange field.propertyName)}}
       />
       <Shared::Form::Error
+        data-test-error={{index}}
         @errors={{get
           this.changeset.error
           (concat field.propertyName ".validation")
@@ -19,5 +21,9 @@
       />
     </div>
   {{/each}}
-  <button type="submit" class="btn btn-primary w-25">Save</button>
+  <button
+    data-test-save-button
+    type="submit"
+    class="btn btn-primary w-25"
+  >Save</button>
 </form>
