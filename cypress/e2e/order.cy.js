@@ -2,8 +2,10 @@ describe('checks adding order', () => {
   it('login without UI and visit panel', () => {
     cy.authenticate();
 
-    cy.visit('/order');
-    cy.url().should('eq', 'http://localhost:4200/order');
+    cy.visit('/panel/requests');
+    cy.url().should('eq', 'http://localhost:4200/panel/requests');
+    cy.get('.card').should('have.length', 3);
+    cy.contains('Zamów wizytę duszpasterską').click();
 
     cy.get('[data-test-input="0"]').type('A');
     cy.get('[data-test-error="0"]').should(

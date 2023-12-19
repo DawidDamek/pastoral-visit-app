@@ -29,6 +29,10 @@
             <label class="form-label" for="password">Password</label>
           </div>
 
+          <div>
+            <Shared::Form::Error @errors={{array this.errorMessage}} />
+          </div>
+
           <button
             type="button"
             class="btn btn-primary btn-block mb-4"

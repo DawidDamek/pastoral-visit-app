@@ -16,11 +16,12 @@ export default class LoginFormComponent extends Component {
     const { email, password } = this;
 
     this.session.set('currentUser', null);
+    this.errorMessage = '';
 
     try {
       await this.session.authenticate('authenticator:devise', email, password);
     } catch (error) {
-      console.log(error);
+      this.errorMessage = error.statusText;
     }
 
     if (this.session.isAuthenticated) {
