@@ -27,7 +27,7 @@ describe('checks adding order', () => {
 
     cy.url().should('eq', 'http://localhost:4200/panel/requests');
     cy.get('.card').should('have.length', 4);
-    cy.get('[data-test-card-name="0"]').should('have.text', 'Adam');
-    cy.get('[data-test-card-surname="0"]').should('have.text', 'Nazwisko');
+    cy.get('[data-test-card-name="3"]').should('have.text', 'Adam');
+    cy.get('[data-test-card-surname="3"]').should('have.text', 'Nazwisko');
   });
 });
